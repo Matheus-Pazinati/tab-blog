@@ -1,3 +1,5 @@
+import { Header } from '../../components/Header'
+
 export function Home() {
-  return <h1>Tab News</h1>
+  return <Header />
 }
