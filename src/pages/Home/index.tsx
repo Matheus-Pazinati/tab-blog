@@ -1,5 +1,3 @@
-import { Header } from '../../components/Header'
-
 export function Home() {
-  return <Header />
+  return <h1>Home</h1>
 }
