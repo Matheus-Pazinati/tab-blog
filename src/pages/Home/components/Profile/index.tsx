@@ -5,17 +5,18 @@ import {
   faArrowUpRightFromSquare,
 } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { ProfileContainer, ProfileIcon } from './styles'
 
 export function Profile() {
   return (
-    <section>
-      <div>
+    <ProfileContainer>
+      <div className="ProfileContent">
         <img
           src="https://rollingstone.uol.com.br/media/_versions/keanu_reeves_como_neo_em_matrix_divulgacao_widelg.jpg"
           alt=""
         />
-        <div>
-          <div>
+        <div className="ProfileData">
+          <div className="ProfileName">
             <h1>Matheus Pazinati</h1>
             <a
               href="https://www.github.com/Matheus-Pazinati"
@@ -34,22 +35,22 @@ export function Profile() {
             molestias excepturi ducimus officia, natus tempore praesentium quis
             nihil aliquam consectetur velit quaerat!
           </p>
-          <div>
+          <div className="ProfileStatus">
             <span>
-              <FontAwesomeIcon icon={faGithub} />
+              <ProfileIcon icon={faGithub} />
               Matheus-Pazinati
             </span>
             <span>
-              <FontAwesomeIcon icon={faBuilding} />
+              <ProfileIcon icon={faBuilding} />
               Rocketseat
             </span>
             <span>
-              <FontAwesomeIcon icon={faUserGroup} />
+              <ProfileIcon icon={faUserGroup} />
               30 seguidores
             </span>
           </div>
         </div>
       </div>
-    </section>
+    </ProfileContainer>
   )
 }

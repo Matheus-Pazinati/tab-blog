@@ -8,5 +8,6 @@ export const GlobalReset = createGlobalStyle`
   }
   body {
     font-family: 'Nunito', sans-serif;
+    background-color: #071422;
   }
 `
