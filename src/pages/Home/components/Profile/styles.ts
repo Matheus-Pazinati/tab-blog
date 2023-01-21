@@ -4,11 +4,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 export const ProfileContainer = styled.section`
   background-color: ${({ theme }) => theme['base-profile']};
   width: 90%;
+  max-width: 864px;
   margin: -5rem auto 0;
   border-radius: 10px;
 
   .ProfileContent {
     padding: 2rem 2.5rem;
+
+    @media (min-width: 850px) {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
 
     img {
       width: 148px;
@@ -30,6 +37,11 @@ export const ProfileContainer = styled.section`
 
     .ProfileName {
       margin: 1rem 0;
+      @media (min-width: 850px) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
       h1 {
         font-size: 1.5rem;
         color: ${({ theme }) => theme['base-title']};
@@ -50,11 +62,15 @@ export const ProfileContainer = styled.section`
     }
 
     .ProfileStatus {
-      margin-top: 1rem;
+      margin-top: 1.5rem;
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
       color: ${({ theme }) => theme['base-subtitle']};
+
+      @media (min-width: 850px) {
+        flex-direction: row;
+      }
 
       span {
         display: flex;

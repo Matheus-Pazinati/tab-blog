@@ -31,9 +31,7 @@ export function Profile() {
           </div>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab,
-            temporibus? Officiis expedita magni quisquam qui. Nam, minima
-            molestias excepturi ducimus officia, natus tempore praesentium quis
-            nihil aliquam consectetur velit quaerat!
+            temporibus? Officiis expedita magni quisquam qui.
           </p>
           <div className="ProfileStatus">
             <span>
