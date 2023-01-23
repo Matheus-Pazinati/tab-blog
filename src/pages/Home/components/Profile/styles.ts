@@ -49,6 +49,10 @@ export const ProfileContainer = styled.section`
       a {
         text-decoration: none;
         color: ${({ theme }) => theme.blue};
+
+        &:hover {
+          border-bottom: 1px solid ${({ theme }) => theme.blue};
+        }
       }
 
       a span {
