@@ -1,6 +1,8 @@
+import { PostPreviewContainer } from './styles'
+
 export function PostPreview() {
   return (
-    <li>
+    <PostPreviewContainer>
       <header>
         <h3>JavaScript data types and data structures</h3>
         <span>Há 1 dia</span>
@@ -11,6 +13,6 @@ export function PostPreview() {
         repellat nesciunt incidunt, sunt sint quam soluta consequatur odio vel.
         Fugiat, id!
       </p>
-    </li>
+    </PostPreviewContainer>
   )
 }

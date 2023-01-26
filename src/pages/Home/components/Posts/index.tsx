@@ -9,7 +9,8 @@ export function Posts() {
         <span>6 publicações</span>
       </div>
       <input type="text" placeholder="Buscar conteúdo" className="PostSearch" />
-      <ul>
+      <ul className="PostsList">
+        <PostPreview />
         <PostPreview />
       </ul>
     </PostsContainer>

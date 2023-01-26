@@ -40,4 +40,16 @@ export const PostsContainer = styled.main`
       border-color: ${({ theme }) => theme.blue};
     }
   }
+
+  .PostsList {
+    display: grid;
+    grid-template-columns: 1;
+    gap: 2rem;
+    list-style: none;
+    margin: 3.75rem 0;
+
+    @media (min-width: 850px) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
 `
