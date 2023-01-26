@@ -1,11 +1,11 @@
-import { PostPreview } from './components/PostPreview'
+import { Posts } from './components/Posts'
 import { Profile } from './components/Profile'
 
 export function Home() {
   return (
     <>
       <Profile />
-      <PostPreview />
+      <Posts />
     </>
   )
 }

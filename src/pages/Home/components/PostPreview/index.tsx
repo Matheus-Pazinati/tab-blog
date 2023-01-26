@@ -1,13 +1,16 @@
-import { PostsContainer } from './styles'
-
 export function PostPreview() {
   return (
-    <PostsContainer>
-      <div className="Header">
-        <h2>Publicações</h2>
-        <span>6 publicações</span>
-      </div>
-      <input type="text" placeholder="Buscar conteúdo" className="PostSearch" />
-    </PostsContainer>
+    <li>
+      <header>
+        <h3>JavaScript data types and data structures</h3>
+        <span>Há 1 dia</span>
+      </header>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+        blanditiis pariatur ipsum distinctio, illum eveniet debitis quod, velit
+        repellat nesciunt incidunt, sunt sint quam soluta consequatur odio vel.
+        Fugiat, id!
+      </p>
+    </li>
   )
 }
