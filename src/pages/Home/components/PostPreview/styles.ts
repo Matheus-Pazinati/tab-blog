@@ -4,6 +4,12 @@ export const PostPreviewContainer = styled.li`
   padding: 2rem;
   background-color: ${({ theme }) => theme['base-post']};
   border-radius: 10px;
+  cursor: pointer;
+  border: 2px solid transparent;
+
+  &:hover {
+    border-color: ${({ theme }) => theme['base-label']};
+  }
 
   header {
     display: flex;
