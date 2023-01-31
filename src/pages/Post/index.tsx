@@ -1,3 +1,9 @@
+import { Title } from './components/Title'
+
 export function Post() {
-  return <h1>Post</h1>
+  return (
+    <main>
+      <Title />
+    </main>
+  )
 }
