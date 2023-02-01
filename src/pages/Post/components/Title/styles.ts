@@ -35,12 +35,21 @@ export const TitleContainer = styled.section`
       font-weight: 700;
       color: ${({ theme }) => theme['base-title']};
       margin: 1.25rem 0;
+
+      @media (min-width: 850px) {
+        margin: 1.25rem 0 0.75rem 0;
+      }
     }
 
     ul {
       display: flex;
       flex-direction: column;
       gap: 1rem;
+
+      @media (min-width: 850px) {
+        flex-direction: row;
+        gap: 2rem;
+      }
 
       li {
         list-style: none;
