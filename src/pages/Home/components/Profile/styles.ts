@@ -51,7 +51,7 @@ export const ProfileContainer = styled.section`
         color: ${({ theme }) => theme.blue};
 
         &:hover {
-          border-bottom: 1px solid ${({ theme }) => theme.blue};
+          text-decoration: underline;
         }
       }
 

@@ -7,34 +7,38 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
+import { TitleContainer } from './styles'
+
 export function Title() {
   return (
-    <section>
-      <nav>
-        <a href="">
-          <FontAwesomeIcon icon={faChevronLeft} />
-          Voltar
-        </a>
-        <a href="">
-          <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-          Ver no Tabnews
-        </a>
-      </nav>
-      <h2>JavaScript data types and data structures</h2>
-      <div>
-        <p>
-          <FontAwesomeIcon icon={faGithub} />
-          Matheus-Pazinati
-        </p>
-        <span>
-          <FontAwesomeIcon icon={faCalendarDay} />
-          Há 1 dia
-        </span>
-        <p>
-          <FontAwesomeIcon icon={faComment} />
-          10 comentários
-        </p>
+    <TitleContainer>
+      <div className="TitleContent">
+        <nav>
+          <a href="">
+            <FontAwesomeIcon icon={faChevronLeft} />
+            Voltar
+          </a>
+          <a href="">
+            <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+            Ver no Tabnews
+          </a>
+        </nav>
+        <h2>JavaScript data types and data structures</h2>
+        <ul>
+          <li>
+            <FontAwesomeIcon icon={faGithub} />
+            Matheus-Pazinati
+          </li>
+          <li>
+            <FontAwesomeIcon icon={faCalendarDay} />
+            Há 1 dia
+          </li>
+          <li>
+            <FontAwesomeIcon icon={faComment} />
+            10 comentários
+          </li>
+        </ul>
       </div>
-    </section>
+    </TitleContainer>
   )
 }
