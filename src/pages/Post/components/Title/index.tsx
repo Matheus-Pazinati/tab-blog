@@ -5,7 +5,8 @@ import {
   faCalendarDay,
   faComment,
 } from '@fortawesome/free-solid-svg-icons'
-import { faGithub } from '@fortawesome/free-brands-svg-icons'
+
+import { faWindowMaximize } from '@fortawesome/free-regular-svg-icons'
 
 import { TitleContainer } from './styles'
 
@@ -23,17 +24,19 @@ export function Title() {
             Ver no Tabnews
           </a>
         </nav>
-        <h2>JavaScript data types and data structures</h2>
+        <h2 title="Título da postagem">
+          JavaScript data types and data structures
+        </h2>
         <ul>
-          <li>
-            <FontAwesomeIcon icon={faGithub} />
-            Matheus-Pazinati
+          <li title="Usuário Tabnews">
+            <FontAwesomeIcon icon={faWindowMaximize} />
+            matheuspazinati
           </li>
-          <li>
+          <li title="Data da postagem">
             <FontAwesomeIcon icon={faCalendarDay} />
             Há 1 dia
           </li>
-          <li>
+          <li title="Comentários">
             <FontAwesomeIcon icon={faComment} />
             10 comentários
           </li>

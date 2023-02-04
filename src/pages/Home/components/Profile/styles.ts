@@ -76,7 +76,7 @@ export const ProfileContainer = styled.section`
         flex-direction: row;
       }
 
-      span {
+      li {
         display: flex;
         align-items: center;
         gap: 0.5rem;

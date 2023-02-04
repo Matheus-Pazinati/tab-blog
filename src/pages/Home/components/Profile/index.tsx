@@ -33,20 +33,20 @@ export function Profile() {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab,
             temporibus? Officiis expedita magni quisquam qui.
           </p>
-          <div className="ProfileStatus">
-            <span>
+          <ul className="ProfileStatus">
+            <li title="Usuário Github">
               <ProfileIcon icon={faGithub} />
               Matheus-Pazinati
-            </span>
-            <span>
+            </li>
+            <li title="Escola">
               <ProfileIcon icon={faBuilding} />
               Rocketseat
-            </span>
-            <span>
+            </li>
+            <li title="Seguidores">
               <ProfileIcon icon={faUserGroup} />
               30 seguidores
-            </span>
-          </div>
+            </li>
+          </ul>
         </div>
       </div>
     </ProfileContainer>
