@@ -5,6 +5,16 @@ export const PostsContainer = styled.main`
   max-width: 864px;
   margin: 3rem auto 0;
 
+  .Loading {
+    display: block;
+    width: 100%;
+    margin-top: 1.5rem;
+
+    span {
+      margin: 0 auto;
+    }
+  }
+
   .Header {
     display: flex;
     align-items: center;

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
+import { RingLoader } from 'react-spinners'
 import { tabnewsApi } from '../../../../lib/api'
 import { PostPreview } from '../PostPreview'
-// import { PostPreview } from '../PostPreview'
 import { PostsContainer } from './styles'
 
 interface PostType {
@@ -41,10 +41,18 @@ export function Posts() {
         <span>{posts.length} publicações</span>
       </div>
       <input type="text" placeholder="Buscar conteúdo" className="PostSearch" />
+      <div className="Loading">
+        <RingLoader
+          color="#AFC2D4"
+          aria-label="Loading Spinner"
+          loading={isLoading}
+          size={150}
+        />
+      </div>
       <ul className="PostsList">
-        {isLoading
-          ? 'Loading'
-          : posts.map((post) => <PostPreview slug={post.slug} key={post.id} />)}
+        {posts.map((post) => (
+          <PostPreview slug={post.slug} key={post.id} />
+        ))}
       </ul>
     </PostsContainer>
   )
