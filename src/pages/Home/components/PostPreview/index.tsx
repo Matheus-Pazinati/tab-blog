@@ -3,6 +3,9 @@ import { tabnewsApi } from '../../../../lib/api'
 import { PostPreviewContainer } from './styles'
 import ReactMarkdown from 'react-markdown'
 
+import { formatDistanceToNow } from 'date-fns'
+import ptBR from 'date-fns/locale/pt-BR'
+
 interface PostPreviewProps {
   slug: string
 }
@@ -10,6 +13,7 @@ interface PostPreviewProps {
 interface PostType {
   body: string
   title: string
+  created_at: Date
 }
 
 export function PostPreview({ slug }: PostPreviewProps) {
@@ -18,7 +22,6 @@ export function PostPreview({ slug }: PostPreviewProps) {
     ['post', slug],
     async () => {
       const response = await tabnewsApi.get(`/contents/matheuspazinati/${slug}`)
-      console.log(response.data)
       return response.data as PostType
     },
     {
@@ -30,7 +33,14 @@ export function PostPreview({ slug }: PostPreviewProps) {
     <PostPreviewContainer>
       <header>
         <h3>{data?.title}</h3>
-        <span>Há 1 dia</span>
+        <span>
+          {data?.created_at
+            ? formatDistanceToNow(new Date(String(data?.created_at)), {
+                addSuffix: true,
+                locale: ptBR,
+              })
+            : ''}
+        </span>
       </header>
       <ReactMarkdown className="Markdown">{data?.body!}</ReactMarkdown>
     </PostPreviewContainer>
