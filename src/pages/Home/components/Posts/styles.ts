@@ -43,8 +43,9 @@ export const PostsContainer = styled.main`
 
   .PostsList {
     display: grid;
-    grid-template-columns: 1;
+    grid-template-columns: 1fr;
     gap: 2rem;
+    max-width: 864px;
     list-style: none;
     margin: 3.75rem 0;
 

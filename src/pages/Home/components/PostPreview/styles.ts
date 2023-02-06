@@ -6,6 +6,11 @@ export const PostPreviewContainer = styled.li`
   border-radius: 10px;
   cursor: pointer;
   border: 2px solid transparent;
+  width: 90vw;
+
+  @media (min-width: 850px) {
+    max-width: 416px;
+  }
 
   &:hover {
     border-color: ${({ theme }) => theme['base-label']};
@@ -37,7 +42,7 @@ export const PostPreviewContainer = styled.li`
     }
   }
 
-  p {
+  .Markdown {
     color: ${({ theme }) => theme['base-text']};
     line-height: 1.5625rem;
     margin-top: 1.25rem;
