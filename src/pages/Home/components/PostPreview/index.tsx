@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown'
 
 import { formatDistanceToNow } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
+import { useNavigate } from 'react-router-dom'
 
 interface PostPreviewProps {
   slug: string
@@ -17,6 +18,7 @@ interface PostType {
 }
 
 export function PostPreview({ slug }: PostPreviewProps) {
+  const navigate = useNavigate()
   const tenMinutesOnMiliseconds = 600000
   const { data } = useQuery(
     ['post', slug],
@@ -29,8 +31,12 @@ export function PostPreview({ slug }: PostPreviewProps) {
     },
   )
 
+  function handleOpenPost() {
+    navigate(`/post/${slug}`)
+  }
+
   return (
-    <PostPreviewContainer>
+    <PostPreviewContainer onClick={handleOpenPost}>
       <header>
         <h3>{data?.title}</h3>
         <span>
