@@ -4,6 +4,7 @@ import {
   faArrowUpRightFromSquare,
   faCalendarDay,
   faComment,
+  faCoins,
 } from '@fortawesome/free-solid-svg-icons'
 
 import { faWindowMaximize } from '@fortawesome/free-regular-svg-icons'
@@ -22,6 +23,7 @@ interface PostProps {
   tab_link: string
   slug: string
   title: string
+  tabcoins: number
 }
 
 interface TitleProps {
@@ -58,6 +60,12 @@ export function Title({ postData }: TitleProps) {
               addSuffix: true,
               locale: ptBR,
             })}
+          </li>
+          <li title="Tabcoins">
+            <FontAwesomeIcon icon={faCoins} />
+            {postData.tabcoins > 1
+              ? `${postData.tabcoins} Tabcoins`
+              : `${postData.tabcoins} Tabcoin`}
           </li>
           <li title="Comentários">
             <FontAwesomeIcon icon={faComment} />

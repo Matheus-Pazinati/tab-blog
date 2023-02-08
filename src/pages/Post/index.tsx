@@ -11,18 +11,26 @@ interface PostTypes {
   tab_link: string
   title: string
   slug: string
+  tabcoins: number
   body: string
 }
 
 export function Post() {
   const { postSlug } = useParams()
+  const fiveMinutesOnMiliseconds = 300000
 
-  const { data, isSuccess } = useQuery(['post', postSlug], async () => {
-    const response = await tabnewsApi.get(
-      `/contents/matheuspazinati/${postSlug}`,
-    )
-    return response.data as PostTypes
-  })
+  const { data, isSuccess } = useQuery(
+    ['post', postSlug],
+    async () => {
+      const response = await tabnewsApi.get(
+        `/contents/matheuspazinati/${postSlug}`,
+      )
+      return response.data as PostTypes
+    },
+    {
+      staleTime: fiveMinutesOnMiliseconds,
+    },
+  )
 
   return (
     <main>
