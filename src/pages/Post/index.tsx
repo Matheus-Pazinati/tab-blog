@@ -37,7 +37,7 @@ export function Post() {
       {isSuccess && (
         <>
           <Title postData={data} />
-          <Body />
+          <Body body={data.body} />
         </>
       )}
     </main>

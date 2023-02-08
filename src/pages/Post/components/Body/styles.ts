@@ -10,7 +10,7 @@ export const BodyContainer = styled.section`
     padding: 0 2rem;
   }
 
-  p {
+  .PostBody {
     color: ${({ theme }) => theme['base-text']};
   }
 `
