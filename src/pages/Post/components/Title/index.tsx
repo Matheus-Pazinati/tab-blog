@@ -10,35 +10,58 @@ import { faWindowMaximize } from '@fortawesome/free-regular-svg-icons'
 
 import { TitleContainer } from './styles'
 
-export function Title() {
+import { Link } from 'react-router-dom'
+
+import { formatDistanceToNow } from 'date-fns'
+import { ptBR } from 'date-fns/locale'
+
+interface PostProps {
+  created_at: Date
+  owner_username: string
+  children_deep_count: number
+  tab_link: string
+  slug: string
+  title: string
+}
+
+interface TitleProps {
+  postData: PostProps
+}
+
+export function Title({ postData }: TitleProps) {
   return (
     <TitleContainer>
       <div className="TitleContent">
         <nav>
-          <a href="">
+          <Link to={'/'}>
             <FontAwesomeIcon icon={faChevronLeft} />
             Voltar
-          </a>
-          <a href="">
+          </Link>
+          <a
+            href={`https://www.tabnews.com.br/${postData.owner_username}/${postData.slug}`}
+            target="_blank"
+            rel="noreferrer"
+          >
             <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
             Ver no Tabnews
           </a>
         </nav>
-        <h2 title="Título da postagem">
-          JavaScript data types and data structures
-        </h2>
+        <h2 title="Título da postagem">{postData.title}</h2>
         <ul>
           <li title="Usuário Tabnews">
             <FontAwesomeIcon icon={faWindowMaximize} />
-            matheuspazinati
+            {postData.owner_username}
           </li>
           <li title="Data da postagem">
             <FontAwesomeIcon icon={faCalendarDay} />
-            Há 1 dia
+            {formatDistanceToNow(new Date(postData.created_at), {
+              addSuffix: true,
+              locale: ptBR,
+            })}
           </li>
           <li title="Comentários">
             <FontAwesomeIcon icon={faComment} />
-            10 comentários
+            {postData.children_deep_count} comentários
           </li>
         </ul>
       </div>
