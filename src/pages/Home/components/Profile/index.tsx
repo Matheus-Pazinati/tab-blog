@@ -28,14 +28,14 @@ export function Profile() {
     followers: '',
   })
 
-  async function getGithubProfile() {
-    const response = await githubApi.get('/Matheus-Pazinati')
-    const data = (await response.data) as ProfileTypes
-
-    setProfile(data)
-  }
-
   useEffect(() => {
+    async function getGithubProfile() {
+      const response = await githubApi.get('/Matheus-Pazinati')
+      const data = (await response.data) as ProfileTypes
+
+      setProfile(data)
+    }
+
     getGithubProfile()
   }, [])
   return (

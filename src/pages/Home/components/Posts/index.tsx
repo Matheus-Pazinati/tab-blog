@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react'
-import { RingLoader } from 'react-spinners'
+import { useQuery } from 'react-query'
+import { MoonLoader } from 'react-spinners'
 import { tabnewsApi } from '../../../../lib/api'
 import { PostPreview } from '../PostPreview'
 import { PostsContainer } from './styles'
@@ -12,37 +12,33 @@ interface PostType {
 }
 
 export function Posts() {
-  const [posts, setPosts] = useState<PostType[]>([])
-  const [isLoading, setIsLoading] = useState(true)
+  const { data, isLoading, error } = useQuery('posts', async () => {
+    try {
+      const response = await tabnewsApi.get(
+        '/contents/matheuspazinati?per_page=100',
+      )
 
-  async function fetchTabnewsPostPreview() {
-    const response = await tabnewsApi.get(
-      '/contents/matheuspazinati?per_page=100',
-    )
+      const responseData = response.data as PostType[]
 
-    const data = response.data as PostType[]
+      const posts = responseData.filter((data) => {
+        return data.parent_id === null
+      })
 
-    const posts = data.filter((data) => {
-      return data.parent_id === null
-    })
-
-    setPosts(posts)
-    setIsLoading(false)
-  }
-
-  useEffect(() => {
-    fetchTabnewsPostPreview()
-  }, [])
+      return posts
+    } catch (_) {
+      console.log(error)
+    }
+  })
 
   return (
     <PostsContainer>
       <div className="Header">
         <h2>Publicações</h2>
-        <span>{posts.length} publicações</span>
+        <span>{data?.length} publicações</span>
       </div>
       <input type="text" placeholder="Buscar conteúdo" className="PostSearch" />
       <div className="Loading">
-        <RingLoader
+        <MoonLoader
           color="#AFC2D4"
           aria-label="Loading Spinner"
           loading={isLoading}
@@ -50,7 +46,7 @@ export function Posts() {
         />
       </div>
       <ul className="PostsList">
-        {posts.map((post) => (
+        {data?.map((post) => (
           <PostPreview slug={post.slug} key={post.id} />
         ))}
       </ul>
