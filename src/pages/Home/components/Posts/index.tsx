@@ -1,3 +1,4 @@
+import { ChangeEvent, useState } from 'react'
 import { useQuery } from 'react-query'
 import { MoonLoader } from 'react-spinners'
 import { tabnewsApi } from '../../../../lib/api'
@@ -12,6 +13,7 @@ interface PostType {
 }
 
 export function Posts() {
+  const [searchText, setSearchText] = useState('')
   const { data, isLoading, error } = useQuery('posts', async () => {
     try {
       const response = await tabnewsApi.get(
@@ -30,13 +32,26 @@ export function Posts() {
     }
   })
 
+  function handleSearchPost(event: ChangeEvent<HTMLInputElement>) {
+    setSearchText(event.target.value)
+  }
+
+  const filteredPostsBySearch = data?.filter((post) => {
+    return post.title.toLowerCase().includes(searchText.toLowerCase())
+  })
+
   return (
     <PostsContainer>
       <div className="Header">
         <h2>Publicações</h2>
         <span>{data?.length} publicações</span>
       </div>
-      <input type="text" placeholder="Buscar conteúdo" className="PostSearch" />
+      <input
+        type="text"
+        placeholder="Buscar conteúdo"
+        className="PostSearch"
+        onChange={(event) => handleSearchPost(event)}
+      />
       <div className="Loading">
         <MoonLoader
           color="#AFC2D4"
@@ -46,7 +61,7 @@ export function Posts() {
         />
       </div>
       <ul className="PostsList">
-        {data?.map((post) => (
+        {filteredPostsBySearch?.map((post) => (
           <PostPreview slug={post.slug} key={post.id} />
         ))}
       </ul>
